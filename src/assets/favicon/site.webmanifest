@@ -1,0 +1,10 @@
+﻿{
+  "name": "clareon-site",
+  "icons": [
+    {
+      "src": "/assets/images/logo/clareon-logo.png",
+      "sizes": "any",
+      "type": "image/png"
+    }
+  ]
+}

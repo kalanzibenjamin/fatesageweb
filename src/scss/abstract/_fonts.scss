@@ -1,0 +1,50 @@
+// ========================================
+// FONT FACE DEFINITIONS
+// ========================================
+
+/*
+  This file is for self-hosted text typography fonts only.
+  Icon fonts (FontAwesome) are managed separately and should not
+  be included in the same font-family stack.
+
+  To add a local text font, place the .woff2/.woff files in
+  /src/assets/fonts and update the src paths below.
+*/
+
+// Example: self-hosted Inter fallback.
+// Uncomment and adjust when you have the font files available.
+/*
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 300 800;
+  font-display: swap;
+  src: url('/assets/fonts/inter-var.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style: italic;
+  font-weight: 300 800;
+  font-display: swap;
+  src: url('/assets/fonts/inter-italic.woff2') format('woff2');
+}
+
+// If you only have individual weights, use the pattern below.
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/assets/fonts/inter-regular.woff2') format('woff2');
+}
+*/
+
+// NOTE: Use the same family name as the Google font ('Inter') for local fallbacks.
+// That way the browser can use the local font when available and still fall back
+// to Google Fonts or system fonts if the local font fails to load.
+
+
+// NOTE: Do not use FontAwesome icon font families for text typography.
+// Icon fonts are for icons only and should remain separate from body/heading fonts.
+

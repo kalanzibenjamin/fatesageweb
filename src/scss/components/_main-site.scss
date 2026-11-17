@@ -1,0 +1,599 @@
+
+
+// ========================================
+// MAIN SITE — COMPONENT STYLES
+// ========================================
+
+// ========================================
+// 1. PROJECT CARDS
+// ========================================
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: $spacing-lg;
+  margin-bottom: $spacing-xl;
+
+  @media (max-width: $breakpoint-md) {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: $spacing-md;
+    margin-bottom: $spacing-lg;
+  }
+
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
+    gap: $spacing-sm;
+  }
+}
+
+.project-card {
+  background: var(--glass-bg, $glass-bg);
+  border-radius: $glass-radius;
+  padding: $spacing-lg;
+  border: 1px solid var(--glass-border, $glass-border);
+  backdrop-filter: blur($glass-blur) saturate($glass-saturate);
+  -webkit-backdrop-filter: blur($glass-blur) saturate($glass-saturate);
+  box-shadow: var(--glass-shadow, $glass-shadow);
+  text-align: center;
+  text-decoration: none;
+  transition: $transition-base;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba($color-accent-blue, 0.05), rgba($color-accent-purple, 0.05));
+    opacity: 0;
+    transition: $transition-base;
+    border-radius: inherit;
+  }
+
+  &:hover {
+    transform: translateY(-6px);
+    border-color: rgba(255, 255, 255, 0.35);
+    background: rgba(255, 255, 255, 0.14);
+    text-decoration: none;
+
+    &::before {
+      opacity: 1;
+    }
+
+    .project-icon {
+      transform: scale(1.1) rotate(-5deg);
+    }
+
+    .project-link {
+      transform: translateX(4px);
+      color: $color-accent-blue;
+    }
+  }
+
+  html.light-mode &:hover {
+    background: rgba(255, 255, 255, 0.6);
+    border-color: rgba(255, 255, 255, 0.8);
+  }
+
+  .project-icon {
+    font-size: 2.8rem;
+    margin-bottom: $spacing-md;
+    display: inline-block;
+    transition: $transition-base;
+    color: $color-accent-blue;
+
+    @media (max-width: $breakpoint-md) {
+      font-size: 2.2rem;
+    }
+  }
+
+  h3 {
+    font-size: 1.2rem;
+    font-weight: $font-weight-bold;
+    color: var(--text-primary, $color-text-primary);
+    margin-bottom: $spacing-xs;
+  }
+
+  p {
+    font-size: 0.9rem;
+    color: var(--text-secondary, $color-text-secondary);
+    line-height: 1.6;
+    margin-bottom: $spacing-md;
+    flex: 1;
+  }
+
+  .project-status {
+    display: inline-block;
+    padding: 0.2rem 0.8rem;
+    border-radius: $border-radius-full;
+    font-size: 0.7rem;
+    font-weight: $font-weight-semibold;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: $spacing-sm;
+
+    &.status-active {
+      background: rgba($color-accent-green, 0.15);
+      color: $color-accent-green;
+      border: 1px solid rgba($color-accent-green, 0.2);
+    }
+
+    &.status-soon {
+      background: rgba($color-accent-blue, 0.15);
+      color: $color-accent-blue;
+      border: 1px solid rgba($color-accent-blue, 0.2);
+    }
+
+    &.status-coming {
+      background: rgba($color-accent-purple, 0.15);
+      color: $color-accent-purple;
+      border: 1px solid rgba($color-accent-purple, 0.2);
+    }
+  }
+
+  .project-link {
+    display: inline-flex;
+    align-items: center;
+    gap: $spacing-xs;
+    font-size: 0.85rem;
+    font-weight: $font-weight-medium;
+    color: var(--text-dim, $color-text-dim);
+    transition: $transition-base;
+
+    i {
+      font-size: 0.75rem;
+      transition: $transition-base;
+    }
+  }
+
+  @media (max-width: $breakpoint-md) {
+    padding: $spacing-md;
+  }
+
+  @media (max-width: 480px) {
+    padding: $spacing-md;
+    text-align: center;
+  }
+}
+
+
+// ========================================
+// 2. STATS SECTION
+// ========================================
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: $spacing-lg;
+  margin-bottom: $spacing-xl;
+
+  @media (max-width: $breakpoint-md) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: $spacing-md;
+    margin-bottom: $spacing-lg;
+  }
+
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr 1fr;
+    gap: $spacing-sm;
+  }
+}
+
+.stat-card {
+  background: var(--glass-bg, $glass-bg);
+  border-radius: $border-radius-lg;
+  padding: $spacing-lg;
+  border: 1px solid var(--glass-border, $glass-border);
+  backdrop-filter: blur($glass-blur) saturate($glass-saturate);
+  -webkit-backdrop-filter: blur($glass-blur) saturate($glass-saturate);
+  box-shadow: var(--glass-shadow, $glass-shadow);
+  text-align: center;
+  transition: $transition-base;
+
+  &:hover {
+    transform: translateY(-4px);
+    border-color: rgba(255, 255, 255, 0.25);
+  }
+
+  .stat-icon {
+    font-size: 1.8rem;
+    color: $color-accent-blue;
+    display: block;
+    margin-bottom: $spacing-xs;
+  }
+
+  .stat-number {
+    font-size: 2.8rem;
+    font-weight: $font-weight-extrabold;
+    color: var(--text-primary, $color-text-primary);
+    display: block;
+    line-height: 1.2;
+  }
+
+  .stat-label {
+    font-size: 0.9rem;
+    color: var(--text-secondary, $color-text-secondary);
+    display: block;
+    margin-top: $spacing-xs;
+  }
+
+  @media (max-width: $breakpoint-md) {
+    padding: $spacing-md;
+
+    .stat-number {
+      font-size: 2.2rem;
+    }
+
+    .stat-icon {
+      font-size: 1.4rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    padding: $spacing-sm;
+
+    .stat-number {
+      font-size: 1.8rem;
+    }
+
+    .stat-label {
+      font-size: 0.75rem;
+    }
+
+    .stat-icon {
+      font-size: 1.2rem;
+    }
+  }
+}
+
+
+// ========================================
+// 3. ABOUT TEASER
+// ========================================
+
+.about-teaser {
+  background: var(--glass-bg, $glass-bg);
+  border-radius: $glass-radius;
+  padding: $spacing-xl;
+  border: 1px solid var(--glass-border, $glass-border);
+  backdrop-filter: blur($glass-blur) saturate($glass-saturate);
+  -webkit-backdrop-filter: blur($glass-blur) saturate($glass-saturate);
+  box-shadow: var(--glass-shadow, $glass-shadow);
+  text-align: center;
+  margin-bottom: $spacing-xl;
+  transition: $transition-base;
+
+  &:hover {
+    transform: translateY(-3px);
+    border-color: rgba(255, 255, 255, 0.3);
+  }
+
+  .about-icon {
+    font-size: 2.5rem;
+    color: $color-accent-blue;
+    display: inline-block;
+    margin-bottom: $spacing-md;
+  }
+
+  h2 {
+    font-size: 1.6rem;
+    font-weight: $font-weight-bold;
+    color: var(--text-primary, $color-text-primary);
+    margin-bottom: $spacing-md;
+  }
+
+  p {
+    color: var(--text-secondary, $color-text-secondary);
+    max-width: 700px;
+    margin: 0 auto $spacing-lg;
+    font-size: 1.05rem;
+    line-height: 1.8;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: $spacing-sm;
+  }
+
+  @media (max-width: $breakpoint-md) {
+    padding: $spacing-lg;
+
+    h2 {
+      font-size: 1.3rem;
+    }
+
+    p {
+      font-size: 0.95rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    padding: $spacing-md;
+
+    .about-icon {
+      font-size: 2rem;
+    }
+  }
+}
+
+
+// ========================================
+// 4. NEWS SECTION
+// ========================================
+
+.news-section {
+  background: var(--glass-bg, $glass-bg);
+  border-radius: $glass-radius;
+  padding: $spacing-lg;
+  border: 1px solid var(--glass-border, $glass-border);
+  backdrop-filter: blur($glass-blur) saturate($glass-saturate);
+  -webkit-backdrop-filter: blur($glass-blur) saturate($glass-saturate);
+  box-shadow: var(--glass-shadow, $glass-shadow);
+  margin-bottom: $spacing-xl;
+
+  .news-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: $spacing-md;
+    flex-wrap: wrap;
+    gap: $spacing-sm;
+
+    h3 {
+      font-size: 1.2rem;
+      font-weight: $font-weight-bold;
+      color: var(--text-primary, $color-text-primary);
+
+      i {
+        color: $color-accent-blue;
+        margin-right: $spacing-sm;
+      }
+    }
+
+    a {
+      color: $color-accent-blue;
+      font-size: 0.9rem;
+      font-weight: $font-weight-medium;
+      text-decoration: none;
+      transition: $transition-fast;
+
+      &:hover {
+        color: $color-accent-purple;
+        text-decoration: underline;
+      }
+
+      i {
+        font-size: 0.75rem;
+      }
+    }
+  }
+
+  .news-filters {
+    display: flex;
+    gap: $spacing-sm;
+    margin-bottom: $spacing-md;
+    flex-wrap: wrap;
+
+    .news-filter {
+      padding: 0.25rem 1rem;
+      border-radius: $border-radius-full;
+      border: 1px solid var(--glass-border, $glass-border);
+      background: transparent;
+      color: var(--text-secondary, $color-text-secondary);
+      font-size: 0.8rem;
+      font-weight: $font-weight-medium;
+      cursor: pointer;
+      transition: $transition-fast;
+      font-family: $font-family-base;
+
+      &:hover {
+        border-color: $color-accent-blue;
+        color: $color-accent-blue;
+      }
+
+      &.active {
+        background: $color-accent-blue;
+        color: $color-white;
+        border-color: $color-accent-blue;
+      }
+
+      html.light-mode &:hover {
+        background: rgba($color-accent-blue, 0.08);
+      }
+
+      html.light-mode &.active {
+        background: $color-accent-blue;
+        color: $color-white;
+      }
+    }
+  }
+
+  .news-list {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-sm;
+
+    .news-item {
+      display: flex;
+      align-items: center;
+      gap: $spacing-md;
+      padding: $spacing-sm $spacing-md;
+      border-radius: $border-radius-md;
+      background: rgba(255, 255, 255, 0.04);
+      transition: $transition-base;
+      cursor: pointer;
+      flex-wrap: wrap;
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.08);
+        transform: translateX(4px);
+      }
+
+      html.light-mode &:hover {
+        background: rgba(0, 0, 0, 0.04);
+      }
+
+      .date {
+        font-size: 0.75rem;
+        color: var(--text-dim, $color-text-dim);
+        white-space: nowrap;
+        font-weight: $font-weight-medium;
+      }
+
+      .content {
+        flex: 1;
+        font-size: 0.95rem;
+        color: var(--text-primary, $color-text-primary);
+        font-weight: $font-weight-medium;
+      }
+
+      .tag {
+        font-size: 0.65rem;
+        background: rgba($color-accent-blue, 0.12);
+        color: $color-accent-blue;
+        padding: 0.1rem 0.6rem;
+        border-radius: $border-radius-full;
+        font-weight: $font-weight-semibold;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        border: 1px solid rgba($color-accent-blue, 0.15);
+      }
+
+      .read-time {
+        font-size: 0.7rem;
+        color: var(--text-dim, $color-text-dim);
+        white-space: nowrap;
+      }
+
+      @media (max-width: $breakpoint-sm) {
+        padding: $spacing-sm;
+        gap: $spacing-xs;
+
+        .date {
+          font-size: 0.7rem;
+          order: 1;
+        }
+
+        .content {
+          font-size: 0.85rem;
+          order: 2;
+          flex-basis: 100%;
+        }
+
+        .tag {
+          font-size: 0.6rem;
+          order: 3;
+        }
+
+        .read-time {
+          font-size: 0.65rem;
+          order: 4;
+        }
+      }
+    }
+  }
+
+  @media (max-width: $breakpoint-md) {
+    padding: $spacing-md;
+  }
+
+  @media (max-width: 480px) {
+    padding: $spacing-sm;
+  }
+}
+
+
+// ========================================
+// 5. CTA SECTION
+// ========================================
+
+.cta-section {
+  /* Ensure CTA doesn't overlap preceding/following content */
+  clear: both;
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 2;
+  margin-top: $spacing-lg;
+  background: var(--glass-bg, $glass-bg);
+  border-radius: $glass-radius;
+  padding: $spacing-xl;
+  border: 1px solid var(--glass-border, $glass-border);
+  backdrop-filter: blur($glass-blur) saturate($glass-saturate);
+  -webkit-backdrop-filter: blur($glass-blur) saturate($glass-saturate);
+  box-shadow: var(--glass-shadow, $glass-shadow);
+  text-align: center;
+  margin-bottom: $spacing-xl;
+
+  h2 {
+    font-size: clamp(1.4rem, 4vw, 2rem);
+    font-weight: $font-weight-bold;
+    color: var(--text-primary, $color-text-primary);
+    margin-bottom: $spacing-sm;
+
+    i {
+      color: $color-accent-blue;
+      margin-right: $spacing-sm;
+    }
+  }
+
+  p {
+    color: var(--text-secondary, $color-text-secondary);
+    font-size: 1.05rem;
+    margin-bottom: $spacing-lg;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .btn-group {
+    display: flex;
+    gap: $spacing-md;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: $spacing-sm;
+    }
+
+    .btn-primary,
+    .btn-accent {
+      color: $color-white;
+    }
+
+    .btn-primary i,
+    .btn-accent i,
+    .btn-primary svg,
+    .btn-accent svg {
+      color: $color-white;
+    }
+  }
+
+  @media (max-width: $breakpoint-md) {
+    padding: $spacing-lg;
+
+    p {
+      font-size: 0.95rem;
+    }
+
+    .btn-group {
+      gap: $spacing-sm;
+    }
+  }
+
+  @media (max-width: 480px) {
+    padding: $spacing-md;
+
+    .btn-group {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+}

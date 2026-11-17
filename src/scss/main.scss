@@ -1,0 +1,43 @@
+﻿// ========================================
+// clareon.live — Main Stylesheet
+// ========================================
+
+// 1. ABSTRACT — Variables, mixins, fonts
+// ========================================
+@import 'abstract/variables';
+@import 'abstract/mixins';
+@import 'abstract/fonts';
+
+// 2. BASE — Reset, typography
+// ========================================
+@import 'base/reset';
+@import 'base/typography';
+
+// 3. LAYOUT — Grid, containers
+// ========================================
+@import 'layout/grid';
+
+// 4. COMPONENTS — UI parts
+// ========================================
+@import 'components/glass';
+@import 'components/buttons';
+@import 'components/cards';
+@import 'components/forms';
+@import 'components/dropdowns';
+@import 'components/header';
+@import 'components/footer';
+@import 'components/main-site';
+
+// 5. PAGES — Page-specific styles
+// ========================================
+@import 'pages/home';
+@import 'pages/about';
+@import 'pages/contact';
+@import 'pages/news';
+@import 'pages/tech';
+@import 'pages/shop';
+@import 'pages/article';
+
+// 6. UTILS — Responsive, helpers
+// ========================================
+@import 'utils/responsive';
